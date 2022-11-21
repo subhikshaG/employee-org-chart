@@ -1,13 +1,29 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
+import { Provider } from 'react-redux';
 import App from './App';
+import configureStore from './store';
 import reportWebVitals from './reportWebVitals';
+import {makeServer} from './server';
+import { employee } from './components/employee/@Redux/reducer';
+
+if (process.env.NODE_ENV === 'development') {
+  makeServer()
+}
+
+const options = {
+  reducers: {
+    employee: employee,
+  }
+};
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider store={configureStore(options)}>
+      <App />
+    </Provider>
   </React.StrictMode>
 );
 
