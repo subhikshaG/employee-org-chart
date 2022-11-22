@@ -1,9 +1,7 @@
 import './employee.css';
 import { useEffect } from 'react';
-import { sagaMiddleware } from '../../store';
 import EmployeeList from './EmployeeList';
 import EmployeeTree from './EmployeeTree';
-import sagas from './@Redux/sagas';
 import { useDispatch } from 'react-redux';
 import EmployeeSearch from './EmployeeSearch';
 
@@ -12,7 +10,6 @@ const Employee = () => {
   const dispatch = useDispatch();
   
   useEffect(() => {
-    sagaMiddleware.run(sagas);
     dispatch({ type: 'GET_EMPLOYEE_DETAILS' });
   }, []);
 
