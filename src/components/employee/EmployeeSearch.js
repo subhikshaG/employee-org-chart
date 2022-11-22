@@ -3,7 +3,7 @@ const EmployeeSearch = () => {
 
   const dispatch = useDispatch();
   const options = [
-    { value: '', text: '--Choose a team--' },
+    { value: '', text: 'All' },
     { value: 'engineering', text: 'Engineering' },
     { value: 'leadership', text: 'Leadership' },
     { value: 'sales', text: 'Sales' },
@@ -22,8 +22,8 @@ const EmployeeSearch = () => {
 
   return (
     <div>
-      <input type='search' id='myInput' onChange={onSearchChange} placeholder='Search for employees' />
-      <select onChange={handleFilterChange}>
+      <input type='search' id='myInput' className='searchInput' onChange={onSearchChange} placeholder='Search for employees' />
+      <select className='filterDropdown' onChange={handleFilterChange}>
         {options.map(option => (
           <option key={option.value} value={option.value}>
             {option.text}

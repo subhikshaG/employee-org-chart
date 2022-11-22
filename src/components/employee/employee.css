@@ -76,3 +76,32 @@
     flex: 100%;
   }
 }
+.searchInput {
+  background-image: url('../../assets/images/searchicon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 14px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+.filterDropdown {
+  margin: 10px 0;
+  padding: 10px 0;
+  text-align: center;
+  width: 100%;
+}
+
+.orgchart-container {
+  background: none !important;
+  border: 0 !important;
+  margin: 0 !important;
+}
+
+.orgchart {
+  background-image: none !important;
+  padding: 0 !important;
+}
+
