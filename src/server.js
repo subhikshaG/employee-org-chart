@@ -24,7 +24,14 @@ export function makeServer({ environment = 'development' } = {}) {
 
       this.get('/employees', schema => {
         return schema.employees.all();
-      })
+      });
+
+      this.patch('/employee/:id', (schema, request) => {
+        let newAttrs = JSON.parse(request.requestBody);
+        let id = request.params.id;
+        let note = schema.employees.find(id);
+        return note.update(newAttrs);
+      });
     },
   });
 

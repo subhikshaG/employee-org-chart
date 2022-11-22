@@ -1,3 +1,4 @@
 export const devEndPoints = {
-	getEmployeeApi :'/api/employees'
+	getEmployeeApi: '/api/employees',
+	updateEmployeeDetailsApi: '/api/employee'
 };
