@@ -254,12 +254,9 @@ const ChartNode = ({
           <NodeTemplate nodeData={datasource} />
         ) : (
           <>
-            <div className="oc-heading">
-              {datasource.relationship &&
-                datasource.relationship.charAt(2) === "1" && (
-                  <i className="oci oci-leader oc-symbol" />
-                )}
-              {datasource.name}
+            <div className="oc-heading flex-heading">
+              <div className="flex-image"><img className="tree-image" src={datasource.id ? require(`../../assets/images/${datasource.id}.jpg`) : ''} alt="employee" /></div>
+              <div className="flex-name">{datasource.name}</div>
             </div>
             <div className="oc-content">{datasource.designation}</div>
           </>

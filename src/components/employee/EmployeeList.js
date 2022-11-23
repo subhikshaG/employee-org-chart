@@ -1,4 +1,3 @@
-import logo from '../../logo.svg';
 import { useSelector } from 'react-redux';
 import { selectEmployeeDetailsToDisplay } from './@Redux/selectors';
 
@@ -8,11 +7,11 @@ const EmployeeList = () => {
     <div>
       {employeeDetails.map(employee => (
         <div className='flex-container-card'>
-          <div className='flex-item-image'><img src={logo} alt={employee.name}  /></div>
+          <div className='flex-item-image'><img src={require(`../../assets/images/${employee.id}.jpg`)} alt={employee.name} className="list-image" /></div>
           <div className='flex-item-details'>
             {employee.name}
-            <p>{employee.designation}</p>
-            <p>{employee.team}</p>
+            <div className='card-information employee-designation'>{employee.designation}</div>
+            <div className='card-information employee-team'>{employee.team}</div>
           </div>
         </div>
       ))}

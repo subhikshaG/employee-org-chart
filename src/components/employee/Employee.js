@@ -15,7 +15,7 @@ const Employee = () => {
 
   return (
     <div>
-      <h2>Employee organization chart</h2>
+      <div className='organization-title'>Organization chart</div>
       <div className='flex-container'>
         <div className='flex-item-left'>
           <EmployeeSearch />

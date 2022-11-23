@@ -13,7 +13,12 @@ const EmployeeTree = () => {
     dispatch({ type: 'UPDATE_EMPLOYEE_DETAILS', employeeId, updateEmployeePayload });
   }
 
-  return <OrganizationChart datasource={employeeDetails} draggable={true} updateNodeParent={updateEmployeeManager} />;
+  return <OrganizationChart
+    datasource={employeeDetails}
+    draggable={true}
+    updateNodeParent={updateEmployeeManager}
+    collapsible={false}
+  />;
 };
 
 export default EmployeeTree;
