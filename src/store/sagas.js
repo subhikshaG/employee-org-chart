@@ -1,24 +1,33 @@
 import { takeLatest, all, call, put } from 'redux-saga/effects';
 import { getEmployeeDetails, updateEmployeeDetailsApi } from './actions';
 
+// Get employee list from service
 function* getEmployees() {
   try {
     const apiResponse = yield call(getEmployeeDetails);
-    let employeeDetails = apiResponse?.data?.employees;
-    yield put({
-      type: 'EMPLOYEE_DETAILS_SUCCESS',
-      employeeDetails: employeeDetails || [],
-    });
+    const employeeDetails = apiResponse?.data?.employees;
+    if (apiResponse?.status === 200 && employeeDetails) {
+      yield put({
+        type: 'EMPLOYEE_DETAILS_SUCCESS',
+        employeeDetails: employeeDetails,
+      });
+    } else {
+      console.error('error in getting employee details');
+    }
+    
   } catch(ex) {
     console.error('error occured', ex);
   }
 }
 
+// Update manager id for employee
 function* updateEmployeeDetails({ employeeId, updateEmployeePayload }) {
   try {
     const apiResponse = yield call(updateEmployeeDetailsApi, employeeId, updateEmployeePayload);
-    if (apiResponse) {
+    if (apiResponse?.status === 200) {
       yield getEmployees();
+    } else {
+      console.error('error in updating employee information');
     }
   } catch(ex) {
     console.error('error occured', ex);

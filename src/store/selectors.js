@@ -7,9 +7,15 @@ export const selectFilterValue = (state) => state?.employee?.filterValue || '';
 // Employees to be displayed in left tree
 export const selectEmployeeDetailsToDisplay = createSelector(selectEmployeeDetails, selectSearchValue, selectFilterValue,
   (employeeDetails, searchValue, filterValue) => {
+    // filter employee if name or designation or team has search value
     const searchedEmployeeDetails = searchValue ? employeeDetails.filter(employee => 
-      employee.name.toLowerCase().includes(searchValue) || employee.designation.toLowerCase().includes(searchValue) || employee.team.toLowerCase().includes(searchValue)) : employeeDetails;
+      employee.name.toLowerCase().includes(searchValue)
+      || employee.designation.toLowerCase().includes(searchValue)
+      || employee.team.toLowerCase().includes(searchValue)) : employeeDetails;
+
+    // filter employee based on team if filter value is present
     const filteredEmployeeDetails = filterValue ? searchedEmployeeDetails.filter(employee => employee.team.toLowerCase() === filterValue.toLowerCase()) : searchedEmployeeDetails;
+
     return filteredEmployeeDetails;
 });
 
@@ -19,50 +25,52 @@ export const selectEmployeeTree = createSelector(selectEmployeeDetails, selectFi
     let root = {};
     if (employeeDetailsPresent) {
       let filteredEmployeeToDisplay = [];
-      employeeDetailsPresent.forEach((el) => {
-        if (el.children) {
-          delete el.children;
-        } 
-      });
-    if (filterValue) {
-      const filteredEmployeeDetails = employeeDetailsPresent.filter(employee => employee.team.toLowerCase() === filterValue.toLowerCase());
-      
-      // show only chart for specific employees base on team
-      filteredEmployeeDetails.forEach(filterEmployee => {
-        let managerId = filterEmployee.managerId;
-        const isEmployeePresent = filteredEmployeeToDisplay.some(emp => {
-          return  emp.id === filterEmployee.id;
-        });
-        if (!isEmployeePresent) {
-          filteredEmployeeToDisplay.push(filterEmployee);
-        }
-        while (managerId !== null) {
-          const employeeFound = employeeDetailsPresent.find(emp => emp.id === managerId);
-          const isEmployeePresentInFilterArray = filteredEmployeeToDisplay.some(emp => emp.id === employeeFound.id);
-          if (!isEmployeePresentInFilterArray) {
-            filteredEmployeeToDisplay.push(employeeFound);
+      if (filterValue) {
+        const filteredEmployeeDetails = employeeDetailsPresent.filter(employee => employee.team.toLowerCase() === filterValue.toLowerCase());
+        
+        // show only chart for specific employees base on team
+        filteredEmployeeDetails.forEach(filterEmployee => {
+          let managerId = filterEmployee.managerId;
+          const isEmployeePresent = filteredEmployeeToDisplay.some(emp => {
+            return  emp.id === filterEmployee.id;
+          });
+          if (!isEmployeePresent) {
+            filteredEmployeeToDisplay.push(filterEmployee);
           }
-          managerId = employeeFound.managerId;
-        }
-      });
-    }
+          while (managerId !== null) {
+            const employeeFound = employeeDetailsPresent.find(emp => emp.id === managerId);
+            const isEmployeePresentInFilterArray = filteredEmployeeToDisplay.some(emp => emp.id === employeeFound.id);
+            if (!isEmployeePresentInFilterArray) {
+              filteredEmployeeToDisplay.push(employeeFound);
+            }
+            managerId = employeeFound.managerId;
+          }
+        });
+      }
 
-    const employeeDetailsTree = filterValue ? filteredEmployeeToDisplay: employeeDetailsPresent; 
-      const idMapping = employeeDetailsTree.reduce((acc, el, i) => {
-        acc[el.id] = i;
+      let employeeDetailsTree = filterValue ? filteredEmployeeToDisplay: employeeDetailsPresent;
+
+      // since we are adding children to employee to generate tree, it would impact the global state, hence a deep clone is required
+      employeeDetailsTree = JSON.parse(JSON.stringify(employeeDetailsTree));
+
+      const idMapping = employeeDetailsTree.reduce((acc, employee, i) => {
+        acc[employee.id] = i;
         return acc;
       }, {});
-      employeeDetailsTree.forEach((el) => {
+
+      // generate tree for organization chart
+      employeeDetailsTree.forEach((employee) => {
         // Handle the root element
-        if (el.managerId === null) {
-          root = el;
+        if (employee.managerId === null) {
+          root = employee;
           return;
         }
         // Use the mapping to locate the parent element in the data array
-        const parentEl = employeeDetailsTree[idMapping[el.managerId]];
+        const parentEl = employeeDetailsTree[idMapping[employee.managerId]];
         // Add current el to its parent's `children` array
-        parentEl.children = [...(parentEl.children || []), el];
+        parentEl.children = [...(parentEl.children || []), employee];
       });
     }
+
     return root || {};
 });

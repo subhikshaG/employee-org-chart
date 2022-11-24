@@ -1,13 +1,9 @@
 import './Search.css';
 import { useDispatch } from 'react-redux'
 const Search = () => {
-
   const dispatch = useDispatch();
 
-  /**
-   * On search, update store to view employees with search key
-   * @param {object} e 
-   */
+  // On search, update store to view employees with search key
   const onSearchChange = (e) => {
     const searchVal = e?.target?.value;
     dispatch({ type: 'UPDATE_SEARCH', searchVal });

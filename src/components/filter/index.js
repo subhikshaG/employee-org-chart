@@ -1,5 +1,6 @@
 import './Filter.css';
 import { useDispatch } from 'react-redux'
+
 const Filter = () => {
 
   const dispatch = useDispatch();
@@ -11,10 +12,7 @@ const Filter = () => {
     { value: 'finance', text: 'Finance' }
   ];
 
-  /**
-   * Once a dropdown is selected, update store to show the list for selected team
-   * @param {object} event 
-   */
+  // Once a dropdown is selected, update store to show the list for selected team
   const handleFilterChange = (event) => {
     const filterValue = event?.target?.value;
     dispatch({ type: 'UPDATE_FILTER', filterValue });

@@ -8,11 +8,7 @@ const OrganizationTree = () => {
   const isFilteredValue = useSelector(state => selectFilterValue(state));
   const dispatch = useDispatch();
 
-  /**
-   * Make API call to update manager id for an employee once a drag and drop is done
-   * @param {string} employeeId 
-   * @param {string} managerId 
-   */
+  // Make API call to update manager id for an employee once a drag and drop is done
   const updateEmployeeManager = (employeeId, managerId) => {
     const updateEmployeePayload = { managerId };
     dispatch({ type: 'UPDATE_EMPLOYEE_DETAILS', employeeId, updateEmployeePayload });

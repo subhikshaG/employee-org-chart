@@ -4,7 +4,6 @@ import Filter from '../filter';
 import ListView from '../listView';
 
 const LeftPane = () => {
-
   return (
     <>
 			<Search />

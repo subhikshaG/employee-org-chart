@@ -12,7 +12,7 @@ const employee = {
   managerId: 'n4'
 };
 
-describe('EmployeeListItem', () => {
+describe('ListItem', () => {
   it('should have designation displayed', () => {
     const view = render(<ListItem employee={employee} />); 
     expect(view.getByTestId('employee-designation')).toHaveTextContent('SDE 1');
