@@ -2,9 +2,10 @@
   width: 70px;
   height: 70px;
   border-radius: 50%;
+  object-fit: cover;
 }
 
-.filterDropdown {
+.filter-dropdown {
   margin: 10px 0;
   padding: 10px 0;
   text-align: center;
@@ -15,7 +16,7 @@
   padding: 5px 0;
 }
 
-.searchInput {
+.search-input {
   background-image: url('../../assets/images/searchicon.png');
   background-position: 10px 10px;
   background-repeat: no-repeat;
@@ -30,21 +31,38 @@
   display: flex;
   flex-wrap: wrap;
   text-align: center;
-  border: solid 1px grey;
-  margin-bottom: 2px;
   min-width: 120px;
   min-height: 120px;
 }
 
+.flex-container-card:hover {
+  border: solid 1px #cccccc;
+  border-radius: 10px;
+}
+
 .flex-item-image {
   background-color: #f1f1f1;
-  padding: 10px 0;
-  flex: 35%;
+  padding: 10px 5px;
+  flex: 0 0 5vw;
   align-self: center;
 }
 
 .flex-item-details {
   background-color: #f1f1f1;
-  flex: 65%;
+  flex: 0 0 10vw;
   align-self: center;
+  text-align: left;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.employee-designation {
+  color: #63666A;
+  font-size: 14px;
+}
+
+.employee-team {
+  color: #63666A;
+  font-size: 14px;
+  font-weight: normal;
 }

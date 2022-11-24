@@ -16,7 +16,7 @@ const EmployeeFilter = () => {
   };
 
   return (
-    <select className='filterDropdown' onChange={handleFilterChange}>
+    <select className='filter-dropdown' onChange={handleFilterChange}>
       {options.map(option => (
         <option key={option.value} value={option.value}>
           {option.text}

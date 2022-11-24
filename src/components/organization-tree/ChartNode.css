@@ -139,6 +139,7 @@
   color: #333;
   text-overflow: ellipsis;
   white-space: nowrap;
+  font-weight: bold;
 }
 
 /* styles for edges */
@@ -452,9 +453,10 @@
 }
 
 .tree-image {
-  width: 35px;
-  height: 35px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
+  object-fit: cover;
 }
 
 .flex-heading {

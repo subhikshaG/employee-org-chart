@@ -9,7 +9,7 @@ const EmployeeSearch = () => {
   };
 
   return (
-    <input type='search' id='myInput' className='searchInput' onChange={onSearchChange} placeholder='Search for employees' />
+    <input type='search' id='searchInput' className='search-input' onChange={onSearchChange} placeholder='Search for employees' />
   );
 };
 

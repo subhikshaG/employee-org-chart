@@ -17,10 +17,10 @@ const Employee = () => {
     <div>
       <Header />
       <div className='flex-container'>
-        <div className='flex-item-left'>
+        <div data-testid='employee-left-pane' className='flex-item-left'>
           <EmployeeLeftPane/>
         </div>
-        <div className='flex-item-right'>
+        <div data-testid='employee-right-pane' className='flex-item-right'>
           <EmployeeRightPane />
         </div>
       </div>

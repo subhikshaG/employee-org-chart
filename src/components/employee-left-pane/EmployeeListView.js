@@ -8,9 +8,11 @@ const EmployeeListView = () => {
   return (
     <div>
       {employeeDetails && employeeDetails.map(employee => (
-        <EmployeeListItem
-        employee={employee}
-        />
+        <div key={employee.id}>
+          <EmployeeListItem
+            employee={employee}
+          />
+        </div>
       ))}
     </div>
   );

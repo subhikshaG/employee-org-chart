@@ -9,14 +9,14 @@ export function makeServer({ environment = 'development' } = {}) {
     },
 
     seeds(server) {
-      server.create('employee', { id: 'n3', name: 'Bob Robert', designation: 'SDE 1', team: 'Engineering', managerId: 'n4' });
-      server.create('employee', { id: 'n2', name: 'Mark Hill', designation: 'CEO', team: 'Leadership', managerId: null });
+      server.create('employee', { id: 'n3', name: 'Bob Robert', designation: 'Lead Engineer', team: 'Engineering', managerId: 'n4' });
+      server.create('employee', { id: 'n2', name: 'Mark Hill', designation: 'Chief Executive Officer', team: 'Leadership', managerId: null });
       server.create('employee', { id: 'n10', name: 'Linda May', designation: 'Sales Specialist', team: 'Sales', managerId: 'n14' });
       server.create('employee', { id: 'n14', name: 'Emma Sesay', designation: 'Sales Manager', team: 'Sales', managerId: 'n2' });
       server.create('employee', { id: 'n20', name: 'Erica Edward', designation: 'Chief Business officer', team: 'Finance', managerId: 'n2' });
       server.create('employee', { id: 'n1', name: 'Mary Tom', designation: 'Chief Brand officer', team: 'Leadership', managerId: 'n2' });
       server.create('employee', { id: 'n4', name: 'Douglas Ray', designation: 'Engineering Manager', team: 'Engineering', managerId: 'n2' });
-      server.create('employee', { id: 'n16', name: 'Michael Palmer', designation: 'SDE 1', team: 'Engineering', managerId: 'n4' });
+      server.create('employee', { id: 'n16', name: 'Michael Palmer', designation: 'Software Engineer', team: 'Engineering', managerId: 'n4' });
     },
 
     routes() {
