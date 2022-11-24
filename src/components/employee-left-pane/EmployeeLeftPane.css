@@ -1,0 +1,50 @@
+.list-image {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}
+
+.filterDropdown {
+  margin: 10px 0;
+  padding: 10px 0;
+  text-align: center;
+  width: 100%;
+}
+
+.card-information {
+  padding: 5px 0;
+}
+
+.searchInput {
+  background-image: url('../../assets/images/searchicon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 14px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+.flex-container-card {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  border: solid 1px grey;
+  margin-bottom: 2px;
+  min-width: 120px;
+  min-height: 120px;
+}
+
+.flex-item-image {
+  background-color: #f1f1f1;
+  padding: 10px 0;
+  flex: 35%;
+  align-self: center;
+}
+
+.flex-item-details {
+  background-color: #f1f1f1;
+  flex: 65%;
+  align-self: center;
+}

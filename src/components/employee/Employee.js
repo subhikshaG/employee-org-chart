@@ -1,9 +1,9 @@
-import './employee.css';
+import './Employee.css';
 import { useEffect } from 'react';
-import EmployeeList from './EmployeeList';
-import EmployeeTree from './EmployeeTree';
 import { useDispatch } from 'react-redux';
-import EmployeeSearch from './EmployeeSearch';
+import Header from '../header';
+import EmployeeLeftPane from '../employee-left-pane';
+import EmployeeRightPane from '../employee-right-pane';
 
 const Employee = () => {
 
@@ -15,14 +15,13 @@ const Employee = () => {
 
   return (
     <div>
-      <div className='organization-title'>Organization chart</div>
+      <Header />
       <div className='flex-container'>
         <div className='flex-item-left'>
-          <EmployeeSearch />
-          <EmployeeList />
+          <EmployeeLeftPane/>
         </div>
         <div className='flex-item-right'>
-          <EmployeeTree />
+          <EmployeeRightPane />
         </div>
       </div>
     </div>

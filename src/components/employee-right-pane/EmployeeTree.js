@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { selectEmployeeTree, selectFilterValue } from './@Redux/selectors';
-import OrganizationChart from '../employee-chart/ChartContainer';
+import { selectEmployeeTree, selectFilterValue } from '../../@Redux/employee/selectors';
+import OrganizationChart from '../organization-tree/ChartContainer';
 
 const EmployeeTree = () => {
   const employeeDetails = useSelector(state => selectEmployeeTree(state));

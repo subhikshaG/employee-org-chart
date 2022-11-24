@@ -1,0 +1,19 @@
+.employee-designation {
+  color: #63666A;
+}
+
+.employee-team {
+  color: #63666A;
+  font-size: 13px;
+}
+
+.orgchart-container {
+  background: none !important;
+  border: 0 !important;
+  margin: 0 !important;
+}
+
+.orgchart {
+  background-image: none !important;
+  padding: 0 !important;
+}

@@ -1,6 +1,6 @@
 import { applyMiddleware, createStore, combineReducers } from 'redux';
 import createSagaMiddleware from 'redux-saga';
-import sagas from './components/employee/@Redux/sagas';
+import sagas from './@Redux/employee/sagas';
 import withDevTools from './devTools';
 
 const reducers = {}; // add your common reducers here
