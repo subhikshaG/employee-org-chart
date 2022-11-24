@@ -15,7 +15,6 @@ Miragejs is used to mock backend api.
 
 <img src="public/OrganizationTree.jpg" >
 
-The screenshot shows
 
 ## Available Scripts
 
