@@ -1,9 +1,9 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { selectEmployeeTree, selectFilterValue } from '../../@Redux/employee/selectors';
-import OrganizationChart from '../organization-tree/ChartContainer';
+import { selectEmployeeTree, selectFilterValue } from '../../store/selectors';
+import OrganizationChart from '../organizationTree/ChartContainer';
 
-const EmployeeTree = () => {
+const OrganizationTree = () => {
   const employeeDetails = useSelector(state => selectEmployeeTree(state));
   const isFilteredValue = useSelector(state => selectFilterValue(state));
   const dispatch = useDispatch();
@@ -21,4 +21,4 @@ const EmployeeTree = () => {
   />;
 };
 
-export default EmployeeTree;
+export default OrganizationTree;

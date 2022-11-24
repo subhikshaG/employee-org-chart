@@ -2,11 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { Provider } from 'react-redux';
-import App from './components/app/App';
-import configureStore from './store';
+import App from './App';
+import configureStore from './globalStore';
 import reportWebVitals from './reportWebVitals';
 import {makeServer} from './server';
-import { employee } from './@Redux/employee/reducer';
+import { employee } from './store/reducer';
 
 if (process.env.NODE_ENV === 'development') {
   makeServer()

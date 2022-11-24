@@ -2,7 +2,7 @@ import './Header.css';
 const Header = () => {
 
   return (
-		<div className='organization-title'>Employee Organization chart</div>
+		<div data-testid='organization-title' className='organization-title'>Organization Chart</div>
   );
 };
 

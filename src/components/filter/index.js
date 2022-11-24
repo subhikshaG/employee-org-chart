@@ -1,5 +1,6 @@
+import './Filter.css';
 import { useDispatch } from 'react-redux'
-const EmployeeFilter = () => {
+const Filter = () => {
 
   const dispatch = useDispatch();
   const options = [
@@ -18,7 +19,7 @@ const EmployeeFilter = () => {
   return (
     <select className='filter-dropdown' onChange={handleFilterChange}>
       {options.map(option => (
-        <option key={option.value} value={option.value}>
+        <option key={option.value} value={option.value} data-testid={option.value}>
           {option.text}
         </option>
       ))}
@@ -26,4 +27,4 @@ const EmployeeFilter = () => {
   );
 };
 
-export default EmployeeFilter;
+export default Filter;

@@ -1,15 +1,17 @@
+import './ListView.css';
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { selectEmployeeDetailsToDisplay } from '../../@Redux/employee/selectors';
-import EmployeeListItem from './EmployeeListItem';
+import { selectEmployeeDetailsToDisplay } from '../../store/selectors';
+import ListItem from './ListItem';
 
-const EmployeeListView = () => {
+const ListView = () => {
   const employeeDetails = useSelector(state => selectEmployeeDetailsToDisplay(state));
+  console.log('employeeDetails', employeeDetails);
   return (
     <div>
       {employeeDetails && employeeDetails.map(employee => (
         <div key={employee.id}>
-          <EmployeeListItem
+          <ListItem
             employee={employee}
           />
         </div>
@@ -18,4 +20,4 @@ const EmployeeListView = () => {
   );
 };
 
-export default EmployeeListView;
+export default ListView;

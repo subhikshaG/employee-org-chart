@@ -1,5 +1,6 @@
+import './Search.css';
 import { useDispatch } from 'react-redux'
-const EmployeeSearch = () => {
+const Search = () => {
 
   const dispatch = useDispatch();
 
@@ -9,8 +10,8 @@ const EmployeeSearch = () => {
   };
 
   return (
-    <input type='search' id='searchInput' className='search-input' onChange={onSearchChange} placeholder='Search for employees' />
+    <input type='search' id='searchInput' className='search-input' onChange={onSearchChange} placeholder='Search' />
   );
 };
 
-export default EmployeeSearch;
+export default Search;

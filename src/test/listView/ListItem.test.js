@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, cleanup } from '@testing-library/react';
-import EmployeeListItem from '../../components/employee-left-pane/EmployeeListItem'
+import ListItem from '../../components/listView/ListItem'
 
 afterEach(cleanup);
 
@@ -13,8 +13,8 @@ const employee = {
 };
 
 describe('EmployeeListItem', () => {
-  it('should equal to 0', () => {
-    const view = render(<EmployeeListItem employee={employee} />); 
+  it('should have designation displayed', () => {
+    const view = render(<ListItem employee={employee} />); 
     expect(view.getByTestId('employee-designation')).toHaveTextContent('SDE 1');
    })
 });

@@ -5,26 +5,8 @@
   object-fit: cover;
 }
 
-.filter-dropdown {
-  margin: 10px 0;
-  padding: 10px 0;
-  text-align: center;
-  width: 100%;
-}
-
 .card-information {
   padding: 5px 0;
-}
-
-.search-input {
-  background-image: url('../../assets/images/searchicon.png');
-  background-position: 10px 10px;
-  background-repeat: no-repeat;
-  width: 100%;
-  font-size: 14px;
-  padding: 12px 20px 12px 40px;
-  border: 1px solid #ddd;
-  margin-bottom: 12px;
 }
 
 .flex-container-card {

@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-const EmployeeListItem = ({ employee }) => {
+const ListItem = ({ employee }) => {
   return (
     <div className='flex-container-card'>
       <div className='flex-item-image'><img src={require(`../../assets/images/${employee.id}.jpg`)} alt={employee.name} className="list-image" /></div>
@@ -13,12 +13,12 @@ const EmployeeListItem = ({ employee }) => {
   );
 };
 
-EmployeeListItem.propTypes = {
+ListItem.propTypes = {
   employee: PropTypes.object
 };
 
-EmployeeListItem.defaultProps = {
+ListItem.defaultProps = {
   employee: {}
 };
 
-export default EmployeeListItem;
+export default ListItem;
