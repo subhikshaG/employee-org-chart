@@ -6,7 +6,6 @@ import ListItem from './ListItem';
 
 const ListView = () => {
   const employeeDetails = useSelector(state => selectEmployeeDetailsToDisplay(state));
-  console.log('employeeDetails', employeeDetails);
   return (
     <div>
       {employeeDetails && employeeDetails.map(employee => (

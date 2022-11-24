@@ -11,8 +11,12 @@ const Filter = () => {
     { value: 'finance', text: 'Finance' }
   ];
 
-  const handleFilterChange = (e) => {
-    const filterValue = e?.target?.value;
+  /**
+   * Once a dropdown is selected, update store to show the list for selected team
+   * @param {object} event 
+   */
+  const handleFilterChange = (event) => {
+    const filterValue = event?.target?.value;
     dispatch({ type: 'UPDATE_FILTER', filterValue });
   };
 

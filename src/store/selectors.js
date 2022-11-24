@@ -4,6 +4,7 @@ export const selectEmployeeDetails = (state) => state?.employee?.employeeDetails
 export const selectSearchValue = (state) => state?.employee?.searchValue || '';
 export const selectFilterValue = (state) => state?.employee?.filterValue || '';
 
+// Employees to be displayed in left tree
 export const selectEmployeeDetailsToDisplay = createSelector(selectEmployeeDetails, selectSearchValue, selectFilterValue,
   (employeeDetails, searchValue, filterValue) => {
     const searchedEmployeeDetails = searchValue ? employeeDetails.filter(employee => 
@@ -12,6 +13,7 @@ export const selectEmployeeDetailsToDisplay = createSelector(selectEmployeeDetai
     return filteredEmployeeDetails;
 });
 
+// Form a tree to display organization chart
 export const selectEmployeeTree = createSelector(selectEmployeeDetails, selectFilterValue,
   (employeeDetailsPresent, filterValue) => {
     let root = {};
@@ -25,6 +27,7 @@ export const selectEmployeeTree = createSelector(selectEmployeeDetails, selectFi
     if (filterValue) {
       const filteredEmployeeDetails = employeeDetailsPresent.filter(employee => employee.team.toLowerCase() === filterValue.toLowerCase());
       
+      // show only chart for specific employees base on team
       filteredEmployeeDetails.forEach(filterEmployee => {
         let managerId = filterEmployee.managerId;
         const isEmployeePresent = filteredEmployeeToDisplay.some(emp => {
@@ -55,9 +58,9 @@ export const selectEmployeeTree = createSelector(selectEmployeeDetails, selectFi
           root = el;
           return;
         }
-        // Use our mapping to locate the parent element in our data array
+        // Use the mapping to locate the parent element in the data array
         const parentEl = employeeDetailsTree[idMapping[el.managerId]];
-        // Add our current el to its parent's `children` array
+        // Add current el to its parent's `children` array
         parentEl.children = [...(parentEl.children || []), el];
       });
     }
