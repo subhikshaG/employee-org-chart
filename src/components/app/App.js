@@ -1,5 +1,5 @@
 import './App.css';
-import Employee from '../employee/Employee';
+import Employee from '../employee';
 
 function App() {
   return (
