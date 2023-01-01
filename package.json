@@ -1,7 +1,7 @@
 {
   "name": "employee-org-chart",
   "version": "0.1.0",
-  "homepage": "https://subhikshag.github.io/organization-chart",
+  "homepage": "https://subhikshag.github.io/employee-org-chart",
   "private": true,
   "dependencies": {
     "@dabeng/react-orgchart": "^1.0.3",
